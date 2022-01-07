@@ -15,12 +15,12 @@
   - name: install minikube
     get_url:
       url: https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+  - name: copying minikube
+    shell:
+      cmd: sudo cp minikube-linux-amd64 /usr/local/bin/minikube
   - name: minikube executable
     shell:
-      cmd: chmod +x minikube-linux-amd64
-  - name: move mini kube in bin
-    shell:
-      cmd: mv minikube-linux-amd64 /usr/local/bin/minikube
+      cmd: sudo chmod 755 /usr/local/bin/minikube
   - name: confirm minikube installation
     shell:
       cmd: minikube version
