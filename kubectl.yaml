@@ -1,6 +1,6 @@
 ---
 
-- name: my test installation
+- name: kubectl installation book
   hosts: localhost
   user: ubuntu
   become: true
@@ -9,7 +9,7 @@
   - name: update packages
     shell:
         cmd:  apt-get update
-  - name: install certificate
+  - name: install certificate curl and other packages
     shell:
       cmd: apt-get install -y apt-transport-https ca-certificates curl
   - name: download public signing key
