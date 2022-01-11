@@ -1,7 +1,7 @@
 ---
 
 - name: Docker Installation
-  hosts: localhost
+  hosts: all
   user: ubuntu
   become: true
 
@@ -25,3 +25,19 @@
 
   - name: Update apt and install docker-ce
     apt: update_cache=yes name=docker-ce state=latest
+
+  - name: Enable docker and start docker service
+    service:
+      name: docker
+      state: started
+      enabled: yes
+
+  - name: Install Docker Module for Python
+    pip:
+      name: docker
+  
+  - name: pull jenkins image from docker hub
+    docker_image:
+      name: jenkins
+      source: pull
+

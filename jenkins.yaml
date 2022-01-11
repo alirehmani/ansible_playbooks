@@ -1,0 +1,12 @@
+---
+
+- name: Jenkins Installation
+  hosts: all
+  user: ubuntu
+  become: true
+
+  tasks:
+  - name: pull jenkins image from docker hub
+    docker_image:
+      name: jenkins:2.60.3
+      source: pull
